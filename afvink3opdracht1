@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Thijs Ermens
+# 11-2-2022
+# De verzamelaar
+
+# Loop die vraagt hoeveel insecten de verzamelaar heeft verzamelt. Telt de gevonden insecten per dag op bij het totaal
+for i in {1..7}
+do
+	echo "Hoeveel insecten heb je verzameld? (dag $i)"
+	read insect
+	totaal=$((totaal + insect))
+done
+
+printf "Het totaal aantal insecten is %s \n" $totaal
+
+# Literatuur
+# https://www.cyberciti.biz/faq/bash-for-loop/

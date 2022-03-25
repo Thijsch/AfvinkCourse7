@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Thijs Ermens
+# 11-2-2022
+# Gereisde afstand
+
+# Declareren van variabelen
+echo "Wat is de snelheid in km/uur?"
+read snelheid
+echo "Wat is de reistijd in uren?"
+read reistijd
+
+printf "Uurafstand\n"
+
+# Loopt over het aantal keer dat reistijd is en berekent het totaal door per uur de reistijd erbij te doen
+for (( c=1; c<=$reistijd; c++))
+do
+	totaal=$(( totaal + snelheid ))
+	echo $c	$totaal
+done
+
+# Literatuur
+# https://www.cyberciti.biz/faq/bash-for-loop/
