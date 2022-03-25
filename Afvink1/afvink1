@@ -1,0 +1,16 @@
+#!/bin/bash
+
+exist=$(cat variant_summary.txt.gz.md5)
+
+rm variant_summary.txt.gz.md5
+wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz.md5
+
+new=$(cat variant_summary.txt.gz.md5)
+
+if [[ $exist == $new ]]; then
+	echo "De MD5 zijn hetzelfde"
+else
+	echo "File wordt geupdate"
+	rm variant_summary.txt.gz
+	wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
+fi
