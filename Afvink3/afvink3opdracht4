@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Thijs Ermens
+# 11-2-2022
+# Nested loops ofzoiets
+
+# printf "*%.s" {1..8}
+# totaal=((printf "*%.s" {1..8}}))
+
+# Declareren van variabele
+var="********"
+
+# Hierin wordt met de 'cut' manier de 1e letter tot de lengte van de for loop * geprint
+for ((c=8; c>0; c--))
+do	
+	echo "$var" | cut -c 1-$c
+done 
+
+# Deze is met de nested loops manier
+for (( a=7; a>=0; a-- )) do
+	for (( b=0 ; b<=$a ; b++)) do
+		printf "*"
+	done
+	printf "\n" 
+done
+
+# Deze is met # en met een bepaald aantal spaties ertussen
+for (( i=1 ; i<=8 ; i++ )) do
+	printf "#%*s\n" $i '#' 
+done
+
+
+# if [[ $mpd == $year2 ]]; then
+#	printf "MAGISCH JAAR: %0*d/%0*d/%0*d" 2 $days 2 $months 2 $year2
+# else
+#	printf "Geen magisch jaar: %0*d/%0*d/%0*d\n" 2 $days 2 $months 2 $year2
+# fi
+
+# Literatuur
+# https://linuxhint.com/remove_characters_string_bash/
+# https://stackoverflow.com/questions/102049/how-do-i-escape-the-wildcard-asterisk-character-in-bash
+
+# Voor met de cut manier
+# https://linuxhint.com/length_of_string_bash/

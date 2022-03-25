@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Thijs Ermens
+# 16-2-2022
+# Leest een bestand en geeft aan hoeveel tekens er per regel zitten
+
+# Declareren van het bestand
+echo "Geef een bestandsnaam"
+read bestand
+bestand="textfileafvink3"
+
+# while loop dat door het bestand heen loopt
+while IFS= read -r line
+do
+	lengte=${#line}
+	count=$(( count + 1 ))
+	printf "Regel %d:%4d tekens\n" $count $lengte
+done < "$bestand"
+
+# Literatuur
+# https://www.cyberciti.biz/faq/unix-howto-read-line-by-line-from-file/
+# Voor de while loop om door een bestand heen te loopen
