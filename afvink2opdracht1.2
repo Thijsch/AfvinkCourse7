@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "Hallo, hoeveel seconden?"
+
+read seconds
+
+dag=$((seconds / 86400))
+seconds=$((seconds - dag * 86400))
+
+uur=$((seconds / 3600))
+seconds=$((seconds - uur * 3600))
+
+minuut=$((seconds / 60))
+seconds=$((seconds - minuut * 60))
+
+l_uur=$((length $seconds))
+echo $l_uur
+echo " hoi"
+
+echo -n "$seconds" | wc -c
+expr length "Find out the length of this string from Linux Bash shell."
+echo -n "Get the length of this line in Bash" | wc -c
+
+echo "dag:uur:minuut:seconden $dag:$uur:$minuut:$seconds"
+printf "%8s dagen\n" $dag
+printf "%8s uren\n" $uur
+printf "%8s minuten\n" $minuut
+printf "%8s seconden\n" $seconds
