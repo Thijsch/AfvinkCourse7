@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Verkrijgen van de data
+echo "Hallo, hoeveel seconden?"
+read seconds
+
+# Berekenen van de dagen, uren en minuten. Telkens worden het aantal seconden van de variabele seconds
+# afgehaald om de overgebleven seconden te gebruiken voor het berekenen van de volgende variabele
+dag=$((seconds / 86400))
+seconds=$((seconds - dag * 86400))
+
+uur=$((seconds / 3600))
+seconds=$((seconds - uur * 3600))
+
+minuut=$((seconds / 60))
+seconds=$((seconds - minuut * 60))
+
+printf "%d:%0*d:%0*d:%0*d\n" $dag 2 $uur 2 $minuut 2 $seconds

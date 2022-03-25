@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#Verkrijgen van de data
+echo "Geef een aantal dagen"
+read days
+echo "Geef een aantal maanden"
+read months
+echo "Geef een jaartal"
+read years
+
+# Controleert of het jaar langer is dan 2 decimalen, zoja dan pakt het de 2 laatste cijfers
+if [ ${#years} -gt 2 ]; then
+	year2=${years: -2}
+fi
+
+# Maakt de variabele voor aantal maanden x aantal dagen
+mpd=$(($days*$months))
+
+# Controleert of het een magisch jaar is en geeft het de datum
+if [[ $mpd == $year2 ]]; then
+	printf "MAGISCH JAAR: %0*d/%0*d/%0*d" 2 $days 2 $months 2 $year2
+else
+	printf "Geen magisch jaar: %0*d/%0*d/%0*d\n" 2 $days 2 $months 2 $year2
+fi
+
+# Voor de printf functie
+# https://linuxize.com/post/bash-printf-command/

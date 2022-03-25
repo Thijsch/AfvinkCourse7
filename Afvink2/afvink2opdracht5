@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Verkrijgen van de data
+echo "Wat is uw naam?"
+read name
+
+# Naam omzetten naar lowercase
+name=${name,,}
+
+# Zodra het 1 van de 3 namen is, dan groeten als docent. ${name^} geeft de naam met de eerste letter als hoofdletter
+if [[ $name == "jacob" ]] || [[ $name == "said" ]] || [[ $name == "tom" ]]; then
+	printf "Welkom geachte docent: %s\n" ${name^}
+else
+	printf "Welkom gast: %s\n" ${name^}
+fi
+
+# Literatuur
+# https://linuxhint.com/bash_lowercase_uppercase_strings/
